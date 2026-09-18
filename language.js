@@ -11,9 +11,9 @@ if (languagePicker) {
       summary.focus();
     }
   });
-  languagePicker.addEventListener('focusout', (event) => {
-    if (!languagePicker.contains(event.relatedTarget)) languagePicker.open = false;
-  });
+  document.addEventListener('focusin', (event) => {
+  if (!languagePicker.contains(event.target)) languagePicker.open = false;
+});
   languagePicker.querySelectorAll('.language-options a').forEach((link) => {
     const destination = new URL(link.getAttribute('href'), window.location.href);
     destination.hash = window.location.hash;
